@@ -190,6 +190,7 @@ export interface WorkoutSplitRequest {
   orderIndex?: number;
   workoutPlanId: number;
   exercises?: SplitExerciseRequest[];
+  restDay?: boolean;
 }
 
 export interface WorkoutSplitResponse extends BaseEntity {
@@ -199,6 +200,7 @@ export interface WorkoutSplitResponse extends BaseEntity {
   exercises: SplitExerciseResponse[];
   workoutPlanId: number;
   workoutPlanName: string;
+  restDay?: boolean;
 }
 
 // ============ Progress Types ============

@@ -16,6 +16,7 @@ public class WorkoutSplitResponse {
     private String name;
     private String dayOfWeek;
     private Integer orderIndex;
+    private Boolean restDay;
     private Long workoutPlanId;
     private String workoutPlanName;
     private List<SplitExerciseResponse> exercises;

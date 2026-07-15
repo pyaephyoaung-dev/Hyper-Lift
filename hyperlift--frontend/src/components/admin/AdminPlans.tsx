@@ -105,7 +105,7 @@ const AdminPlans = () => {
         </div>
         <button
           onClick={openCreateModal}
-          className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer"
+          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer"
         >
           <FiPlus /> Create Plan
         </button>
@@ -135,6 +135,7 @@ const AdminPlans = () => {
                 <th className="px-6 py-4">Plan Name</th>
                 <th className="px-6 py-4">Availability</th>
                 <th className="px-6 py-4">Difficulty</th>
+                <th className="px-6 py-4">Goal</th>
                 <th className="px-6 py-4">Split Days</th>
                 <th className="px-6 py-4">Actions</th>
               </tr>
@@ -161,6 +162,13 @@ const AdminPlans = () => {
                       </span>
                     )}
                   </td>
+                  <td className="px-6 py-4">
+                    {plan.goal && (
+                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400">
+                        {plan.goal}
+                      </span>
+                    )}
+                  </td>
                   <td className="px-6 py-4 text-gray-400 text-sm">{plan.splits?.length || 0}</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-1">
@@ -183,7 +191,7 @@ const AdminPlans = () => {
               ))}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="px-6 py-10 text-center text-gray-500">
+                  <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
                     No plans found.
                   </td>
                 </tr>
@@ -301,7 +309,7 @@ const AdminPlans = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-5 py-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white rounded-lg font-medium transition-colors cursor-pointer"
+                  className="px-5 py-2 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-lg font-medium transition-colors cursor-pointer"
                 >
                   {submitting ? 'Creating...' : 'Create Plan'}
                 </button>

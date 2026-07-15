@@ -58,7 +58,6 @@ export const MUSCLE_GROUPS = [
   'Core',
   'Forearms',
   'Traps',
-  'Full Body',
 ];
 
 export const DIFFICULTY_LEVELS = ['Beginner', 'Intermediate', 'Advanced', 'Expert'];
@@ -73,7 +72,6 @@ export const EQUIPMENT_TYPES = [
   'Resistance Band',
   'Smith Machine',
   'EZ Bar',
-  'None',
 ];
 
 export const DAYS_OF_WEEK = [

@@ -24,6 +24,10 @@ public class WorkoutSplit extends BaseEntity {
     @Column(name = "order_index")
     private Integer orderIndex;
 
+    /** True when this split day is a scheduled rest day — no exercises attached. */
+    @Column(name = "rest_day")
+    private Boolean restDay;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "workout_plan_id", nullable = false)
     private WorkoutPlan workoutPlan;

@@ -28,7 +28,7 @@ public class WorkoutSplitService {
     private final ExerciseDao exerciseDao;
 
     public WorkoutSplitService(WorkoutSplitDao workoutSplitDao, WorkoutPlanDao workoutPlanDao,
-                                ExerciseDao exerciseDao) {
+                               ExerciseDao exerciseDao) {
         this.workoutSplitDao = workoutSplitDao;
         this.workoutPlanDao = workoutPlanDao;
         this.exerciseDao = exerciseDao;
@@ -55,11 +55,14 @@ public class WorkoutSplitService {
                 .name(request.getName())
                 .dayOfWeek(request.getDayOfWeek())
                 .orderIndex(request.getOrderIndex())
+                .restDay(Boolean.TRUE.equals(request.getRestDay()))
                 .workoutPlan(plan)
                 .splitExercises(new ArrayList<>())
                 .build();
 
-        applyExercises(split, request.getExercises());
+        if (!Boolean.TRUE.equals(request.getRestDay())) {
+            applyExercises(split, request.getExercises());
+        }
 
         WorkoutSplit savedSplit = workoutSplitDao.save(split);
         return convertToWorkoutSplitResponse(savedSplit);
@@ -72,9 +75,12 @@ public class WorkoutSplitService {
         split.setName(request.getName());
         split.setDayOfWeek(request.getDayOfWeek());
         split.setOrderIndex(request.getOrderIndex());
+        split.setRestDay(Boolean.TRUE.equals(request.getRestDay()));
 
         split.getSplitExercises().clear();
-        applyExercises(split, request.getExercises());
+        if (!Boolean.TRUE.equals(request.getRestDay())) {
+            applyExercises(split, request.getExercises());
+        }
 
         WorkoutSplit updatedSplit = workoutSplitDao.save(split);
         return convertToWorkoutSplitResponse(updatedSplit);
@@ -128,6 +134,7 @@ public class WorkoutSplitService {
                 .name(split.getName())
                 .dayOfWeek(split.getDayOfWeek())
                 .orderIndex(split.getOrderIndex())
+                .restDay(Boolean.TRUE.equals(split.getRestDay()))
                 .workoutPlanId(split.getWorkoutPlan().getId())
                 .workoutPlanName(split.getWorkoutPlan().getName())
                 .exercises(exerciseResponses)

@@ -24,6 +24,9 @@ public class WorkoutSplitRequest {
 
     private Integer orderIndex;
 
+    /** True when this split day is a rest day — exercises are ignored when set. */
+    private Boolean restDay;
+
     @NotNull(message = "Workout plan ID is required")
     private Long workoutPlanId;
 
