@@ -115,7 +115,6 @@ public class WorkoutSplitService {
         }
     }
 
-    // Manual Entity to DTO conversion
     private WorkoutSplitResponse convertToWorkoutSplitResponse(WorkoutSplit split) {
         List<SplitExerciseResponse> exerciseResponses = null;
         if (split.getSplitExercises() != null) {

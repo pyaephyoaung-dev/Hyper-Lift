@@ -18,7 +18,6 @@ const Login = () => {
     setError('');
     try {
       const user = await login({ username, password });
-      // Admin logs in -> admin dashboard. Everyone else -> user dashboard.
       navigate(user.role === 'ADMIN' ? '/admin/dashboard' : '/user/dashboard');
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Invalid username or password');
@@ -27,18 +26,14 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-950 flex relative overflow-hidden">
-      {/* decorative blurs */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-orange-500/8 rounded-full blur-[140px]" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-orange-600/6 rounded-full blur-[120px]" />
 
-      {/* ← back to home */}
       <Link to="/" className="absolute top-6 left-6 flex items-center gap-2 text-gray-500 hover:text-white text-sm transition-colors no-underline z-10">
         <FiArrowLeft /> Home
       </Link>
 
-      {/* centre card */}
       <div className="m-auto w-full max-w-md px-5 py-16 relative z-10">
-        {/* Logo */}
         <div className="text-center mb-10 animate-slide-down">
           <Link to="/" className="inline-flex items-center gap-3 no-underline group">
             <GiWeightLiftingUp className="text-5xl text-orange-500 transition-transform group-hover:rotate-[-8deg]" />
@@ -49,7 +44,6 @@ const Login = () => {
           <p className="text-gray-500 mt-3 text-sm">Sign in to continue your journey</p>
         </div>
 
-        {/* Card */}
         <div className="bg-gray-900/70 backdrop-blur-xl border border-gray-800 rounded-2xl p-8 shadow-2xl shadow-black/40 animate-scale-in">
           {error && <AlertMessage type="error" message={error} onClose={() => setError('')} />}
 

@@ -14,19 +14,16 @@ export const planService = {
     return response.data;
   },
 
-  /** Library plans matching the user's requested gym days/week. */
   matchPlans: async (daysPerWeek: number): Promise<ApiResponse<WorkoutPlanResponse[]>> => {
     const response = await api.get(`${PLAN_URL}/match`, { params: { daysPerWeek } });
     return response.data;
   },
 
-  /** The current user's active (selected) plan, if any. */
   getMyActivePlan: async (): Promise<ApiResponse<WorkoutPlanResponse | null>> => {
     const response = await api.get(`${PLAN_URL}/active/my`);
     return response.data;
   },
 
-  /** Adopt a previewed plan as the user's active schedule. */
   selectPlan: async (id: number): Promise<ApiResponse<WorkoutPlanResponse>> => {
     const response = await api.post(`${PLAN_URL}/${id}/select`);
     return response.data;

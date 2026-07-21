@@ -55,7 +55,6 @@ const CreateProgress = () => {
       const response = await planService.getMyActivePlan();
       setActivePlan(response.data || null);
     } catch {
-      // no active plan is fine — the exercise dropdown will just be empty
     } finally {
       setLoadingPlan(false);
     }
@@ -78,8 +77,6 @@ const CreateProgress = () => {
   })();
 
   const toNum = (v: string) => (v === '' ? undefined : Number(v));
-
-  // ---- Block / set helpers ----
 
   const addBlock = () => setBlocks((prev) => [...prev, makeBlock()]);
 
@@ -116,14 +113,10 @@ const CreateProgress = () => {
       )
     );
 
-  // Exercise ids already claimed by another block, so the same exercise isn't
-  // split across two blocks (extra sets for it belong in that block instead).
   const takenElsewhere = (blockKey: string) =>
     new Set(blocks.filter((b) => b.key !== blockKey && b.exerciseId !== '').map((b) => b.exerciseId));
 
   const totalSets = blocks.reduce((sum, b) => sum + (b.exerciseId ? b.sets.length : 0), 0);
-
-  // ---- Submit ----
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -162,8 +155,6 @@ const CreateProgress = () => {
     setError('');
     setSubmitting(true);
 
-    // Sets are auto-numbered per exercise on the server based on how many are
-    // already saved for that day, so submit sequentially, in order.
     let completed = 0;
     try {
       for (const block of activeBlocks) {

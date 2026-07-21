@@ -8,15 +8,13 @@ import {
 } from 'react-icons/fi';
 import { GiWeightLiftingUp, GiMuscleUp, GiRunningShoe, GiMeditation } from 'react-icons/gi';
 
-/* ─── image URLs ─── */
 const HERO_BG   = 'https://images.pexels.com/photos/17706044/pexels-photo-17706044.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1600';
 const FEAT_IMG  = 'https://hips.hearstapps.com/hmg-prod/images/cq5dam-ss20-trn-projrock-dj-shot-2-0449-scrn-v-2-1614961199.jpeg?crop=1xw:0.8453125xh;0,0.152xh&resize=980:*';
-const CTA_IMG   = 'https://images.pexels.com/photos/32695897/pexels-photo-32695897.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200';
+const CTA_IMG   = 'https://flex-web-media-prod.storage.googleapis.com/2024/11/man-at-gym.jpg';
 const TEST_1    = 'https://images.pexels.com/photos/11433060/pexels-photo-11433060.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300';
 const TEST_2    = 'https://images.pexels.com/photos/35540076/pexels-photo-35540076.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300';
 const TEST_3    = 'https://images.pexels.com/photos/12890881/pexels-photo-12890881.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300';
 
-/* ─── Intersection‑observer hook ─── */
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -30,7 +28,6 @@ function useInView(threshold = 0.15) {
   return { ref, visible };
 }
 
-/* ─── Animated counter ─── */
 function Counter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const { ref, visible } = useInView();
@@ -48,9 +45,6 @@ function Counter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: 
   return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
 }
 
-/* ============================================================
-   LANDING PAGE
-   ============================================================ */
 const LandingPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -61,11 +55,9 @@ const LandingPage = () => {
     return () => window.removeEventListener('scroll', h);
   }, []);
 
-  /* ─── NAV ─── */
   const nav = (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-gray-950/90 backdrop-blur-xl border-b border-gray-800/60 shadow-2xl shadow-black/40' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-10 py-4">
-        {/* logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline group">
           <GiWeightLiftingUp className="text-3xl text-orange-500 transition-transform group-hover:rotate-[-8deg]" />
           <span className="text-2xl font-extrabold tracking-tight text-white">
@@ -73,7 +65,6 @@ const LandingPage = () => {
           </span>
         </Link>
 
-        {/* desktop links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#features" className="hover:text-white transition-colors no-underline">Features</a>
           <a href="#how" className="hover:text-white transition-colors no-underline">How It Works</a>
@@ -81,19 +72,16 @@ const LandingPage = () => {
           <a href="#pricing" className="hover:text-white transition-colors no-underline">Pricing</a>
         </div>
 
-        {/* desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <Link to="/login" className="text-gray-300 hover:text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors no-underline">Sign In</Link>
           <Link to="/register" className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-orange-500/25 no-underline">Get Started Free</Link>
         </div>
 
-        {/* mobile toggle */}
         <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-gray-300 hover:text-white text-2xl">
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
-      {/* mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-gray-950/95 backdrop-blur-xl border-t border-gray-800/60 px-5 pb-6 pt-2 animate-slide-down space-y-3">
           <a href="#features" onClick={() => setMenuOpen(false)} className="block py-2 text-gray-300 hover:text-white no-underline">Features</a>
@@ -113,27 +101,22 @@ const LandingPage = () => {
     <div className="bg-gray-950 min-h-screen overflow-hidden">
       {nav}
 
-      {/* ════════════ HERO ════════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* background image + overlay */}
         <div className="absolute inset-0">
           <img src={HERO_BG} alt="" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/70 to-gray-950" />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-transparent to-gray-950/90" />
         </div>
 
-        {/* decorative blurs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-[120px] animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-600/8 rounded-full blur-[150px] animate-float-delayed" />
 
         <div className="relative z-10 max-w-6xl mx-auto text-center px-5 pt-28 pb-16">
-          {/* badge */}
           <div className="animate-slide-up inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 px-4 py-1.5 rounded-full mb-8">
             <FiZap className="text-orange-400 text-sm" />
             <span className="text-orange-300 text-xs font-semibold tracking-wide uppercase">#1 Workout Tracker of 2026</span>
           </div>
-
-          {/* headline */}
+          
           <h1 className="animate-slide-up-delay-1 text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight">
             Elevate Every<br />
             <span className="relative inline-block">
@@ -149,7 +132,6 @@ const LandingPage = () => {
             Log workouts, track progress, follow custom plans — and crush your personal records.
           </p>
 
-          {/* CTA row */}
           <div className="animate-slide-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <Link to="/register" className="group relative bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg font-bold px-8 py-4 rounded-2xl shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all hover:-translate-y-0.5 no-underline flex items-center gap-2">
               Start Training Free <FiArrowRight className="transition-transform group-hover:translate-x-1" />
@@ -162,7 +144,7 @@ const LandingPage = () => {
             </a>
           </div>
 
-          {/* trust bar */}
+
           <div className="animate-slide-up-delay-4 mt-16 flex flex-wrap justify-center gap-x-10 gap-y-4 text-gray-500 text-sm">
             <span className="flex items-center gap-2"><FiCheckCircle className="text-green-500" /> Free forever plan</span>
             <span className="flex items-center gap-2"><FiCheckCircle className="text-green-500" /> No credit card</span>
@@ -171,11 +153,10 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* bottom fade */}
+
         <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-gray-950 to-transparent" />
       </section>
 
-      {/* ════════════ STATS BAR ════════════ */}
       <section className="relative -mt-4 z-20">
         <div className="max-w-5xl mx-auto px-5">
           <div className="bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 sm:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center animate-pulse-glow">
@@ -194,7 +175,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ FEATURES ════════════ */}
       <section id="features" className="py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <SectionLabel icon={<FiZap />} text="Why HyperLift" />
@@ -206,7 +186,6 @@ const LandingPage = () => {
             From beginners to advanced lifters — HyperLift gives you the tools to track, plan, and progress like never before.
           </p>
 
-          {/* feature cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-16">
             {[
               { icon: <FiActivity />,    color: 'orange', title: 'Smart Workout Logging',    desc: 'Record sets, reps and weight with lightning speed. Never miss a session again.' },
@@ -222,7 +201,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ IMAGE + TEXT SPLIT ════════════ */}
       <section className="py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <RevealBlock>
@@ -265,7 +243,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ HOW IT WORKS ════════════ */}
       <section id="how" className="py-24 sm:py-32 bg-gradient-to-b from-gray-950 via-gray-900/40 to-gray-950">
         <div className="max-w-6xl mx-auto px-5 md:px-10 text-center">
           <SectionLabel icon={<FiSmartphone />} text="Get Started in 3 Steps" />
@@ -294,7 +271,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ EXERCISE CATEGORIES ════════════ */}
       <section className="py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-10 text-center">
           <SectionLabel icon={<GiMuscleUp />} text="Exercise Library" />
@@ -323,7 +299,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ TESTIMONIALS ════════════ */}
       <section id="testimonials" className="py-24 sm:py-32 bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950">
         <div className="max-w-6xl mx-auto px-5 md:px-10">
           <SectionLabel icon={<FiStar />} text="Loved by Athletes" />
@@ -355,7 +330,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ PRICING ════════════ */}
       <section id="pricing" className="py-24 sm:py-32">
         <div className="max-w-5xl mx-auto px-5 md:px-10 text-center">
           <SectionLabel icon={<FiAward />} text="Simple Pricing" />
@@ -364,7 +338,6 @@ const LandingPage = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-14 max-w-3xl mx-auto">
-            {/* Free */}
             <RevealBlock>
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-left h-full transition-transform duration-150 hover:-translate-y-1 active:scale-[0.98]">
                 <p className="text-gray-400 font-semibold text-sm uppercase tracking-wide">Free</p>
@@ -380,7 +353,6 @@ const LandingPage = () => {
               </div>
             </RevealBlock>
 
-            {/* Pro */}
             <RevealBlock>
               <div className="relative bg-gradient-to-b from-orange-500/10 to-gray-900 border-2 border-orange-500/40 rounded-2xl p-8 text-left h-full animate-pulse-glow transition-transform duration-150 hover:-translate-y-1 active:scale-[0.98]">
                 <span className="absolute -top-3 right-6 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Popular</span>
@@ -400,7 +372,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ FINAL CTA ════════════ */}
       <section className="py-24 sm:py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={CTA_IMG} alt="" className="w-full h-full object-cover" />
@@ -421,11 +392,9 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ════════════ FOOTER ════════════ */}
       <footer className="border-t border-gray-800 bg-gray-950">
         <div className="max-w-7xl mx-auto px-5 md:px-10 py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            {/* brand */}
             <div className="col-span-2 md:col-span-1">
               <Link to="/" className="flex items-center gap-2 no-underline mb-4">
                 <GiWeightLiftingUp className="text-2xl text-orange-500" />
@@ -434,7 +403,6 @@ const LandingPage = () => {
               <p className="text-gray-500 text-sm leading-relaxed">The intelligent fitness platform for athletes who want results.</p>
             </div>
 
-            {/* links */}
             {[
               { heading: 'Product', links: ['Features', 'Pricing', 'Exercises', 'Plans'] },
               { heading: 'Company', links: ['About', 'Blog', 'Careers', 'Contact'] },
@@ -466,8 +434,6 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-/* ─── Sub‑components ─── */
 
 function SectionLabel({ icon, text, align = 'center' }: { icon: React.ReactNode; text: string; align?: string }) {
   return (

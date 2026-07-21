@@ -12,7 +12,6 @@ import LoadingSpinner from '../common/LoadingSpinner';
 import { WorkoutResponse, ProgressResponse } from '../../types/AppTypes';
 import { formatDate } from '../../utils/Helpers';
 
-// Distinct, high-contrast colors for however many muscle groups show up.
 const CHART_PALETTE = ['#f97316', '#3b82f6', '#22c55e', '#a855f7', '#eab308', '#ec4899', '#14b8a6', '#ef4444', '#84cc16', '#6366f1'];
 
 const UserDashboard = () => {
@@ -50,7 +49,6 @@ const UserDashboard = () => {
       setRecentWorkouts(workouts.slice(0, 5));
       setAllProgress(progress);
     } catch {
-      // silently handle
     } finally {
       setLoading(false);
     }
@@ -58,9 +56,6 @@ const UserDashboard = () => {
 
   if (loading) return <LoadingSpinner message="Loading dashboard..." />;
 
-  // Tally logged sets by muscle group, most-trained first. Driven by actual
-  // Progress Log entries so it updates every time a set is logged, not just
-  // when a full workout is saved.
   const muscleGroupSegments = (() => {
     const counts: Record<string, number> = {};
     allProgress.forEach((p) => {
@@ -74,7 +69,6 @@ const UserDashboard = () => {
 
   return (
     <div>
-      {/* Welcome */}
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">
           Welcome back, <span className="text-orange-500">{user?.firstName}</span> 💪
@@ -82,7 +76,6 @@ const UserDashboard = () => {
         <p className="text-gray-400">Here's your fitness overview</p>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <DashboardStatCard icon={<FiActivity />} label="Total Workouts" value={stats.workouts} color="bg-orange-500" />
         <DashboardStatCard icon={<FiList />} label="Exercises" value={stats.exercises} color="bg-blue-500" />
@@ -90,9 +83,7 @@ const UserDashboard = () => {
         <DashboardStatCard icon={<FiTrendingUp />} label="Progress Logs" value={stats.progress} color="bg-purple-500" />
       </div>
 
-      {/* Quick Actions */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Quick Actions Card */}
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 gap-3">
@@ -123,7 +114,6 @@ const UserDashboard = () => {
           </div>
         </div>
 
-        {/* Recent Workouts */}
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-white">Recent Workouts</h3>
@@ -161,7 +151,6 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      {/* Progress Overview */}
       <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 mt-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-white">Progress Overview</h3>

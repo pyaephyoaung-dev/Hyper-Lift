@@ -16,14 +16,11 @@ public class ProgressRequest {
 
     private Boolean restDay;
 
-    /** Required unless restDay is true. */
     private Long exerciseId;
 
-    /** Required unless restDay is true. */
     @PositiveOrZero(message = "Weight must not be negative")
     private Double weight;
 
-    /** Required unless restDay is true. */
     @Min(value = 1, message = "Reps must be at least 1")
     private Integer reps;
 
@@ -37,6 +34,5 @@ public class ProgressRequest {
     @Size(max = 1000, message = "Notes must not exceed 1000 characters")
     private String notes;
 
-    /** Set implicitly from the authenticated user; not required from the client. */
     private Long userId;
 }

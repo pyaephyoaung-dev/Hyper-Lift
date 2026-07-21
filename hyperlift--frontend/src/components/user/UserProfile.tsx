@@ -6,9 +6,6 @@ import AlertMessage from '../common/AlertMessage';
 import PasswordField from '../common/PasswordField';
 import { setUser } from '../../utils/Helpers';
 
-// Per product spec: from their own Profile page, a user may only change
-// their username, password, body weight, and height. Everything else
-// (name, email, age, gender, goal, experience) is fixed after registration.
 const UserProfile = () => {
   const { user } = useAuth();
   const [username, setUsername] = useState(user?.username || '');
@@ -58,7 +55,6 @@ const UserProfile = () => {
         </p>
       </div>
 
-      {/* Profile Avatar */}
       <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 mb-6 text-center">
         <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-3xl text-white font-bold mx-auto mb-3">
           {user?.firstName?.charAt(0) || 'U'}

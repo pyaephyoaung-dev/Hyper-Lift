@@ -43,7 +43,6 @@ const UserProgress = () => {
     }
   };
 
-  // Group logged sets by date, then by exercise, for a readable session view.
   const groupedByDate = useMemo(() => {
     const byDate = new Map<string, ProgressResponse[]>();
     for (const entry of progressEntries) {

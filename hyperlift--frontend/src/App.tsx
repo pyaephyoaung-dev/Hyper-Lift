@@ -1,25 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
-// Public pages
 import Login from './auth/Login';
 import Register from './auth/Register';
 import LandingPage from './components/landing/LandingPage';
 
-// Layouts
 import UserLayout from './components/layouts/UserLayout';
 import AdminLayout from './components/layouts/AdminLayout';
 
-// Guards
 import AuthGuard from './components/guards/AuthGuard';
 import AdminGuard from './components/guards/AdminGuard';
 import GuestGuard from './components/guards/GuestGuard';
 
-// Exception pages
 import NotFound from './components/exception/NotFound';
 import Unauthorized from './components/exception/Unauthorized';
 
-// User pages
 import UserDashboard from './components/user/UserDashboard';
 import UserWorkouts from './components/workout/UserWorkouts';
 import CreateWorkout from './components/workout/CreateWorkout';
@@ -32,7 +27,6 @@ import UserProgress from './components/progress/UserProgress';
 import CreateProgress from './components/progress/CreateProgress';
 import UserProfile from './components/user/UserProfile';
 
-// Admin pages
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminUsers from './components/admin/AdminUsers';
 import AdminExercises from './components/admin/AdminExercises';
@@ -47,16 +41,12 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          {/* Public Landing Page — always accessible */}
           <Route path="/" element={<LandingPage />} />
-
-          {/* Guest-only Routes (redirect to dashboard if logged in) */}
           <Route element={<GuestGuard />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
 
-          {/* User Routes */}
           <Route element={<AuthGuard />}>
             <Route element={<UserLayout />}>
               <Route path="/user/dashboard" element={<UserDashboard />} />
@@ -73,7 +63,6 @@ function App() {
             </Route>
           </Route>
 
-          {/* Admin Routes */}
           <Route element={<AdminGuard />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -87,7 +76,6 @@ function App() {
             </Route>
           </Route>
 
-          {/* Global Error Routes */}
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

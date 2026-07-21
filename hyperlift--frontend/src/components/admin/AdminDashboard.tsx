@@ -28,7 +28,7 @@ const AdminDashboard = () => {
       });
       setRecentUsers(data.recentUsers || []);
     } catch {
-      // Fallback or error handling
+      // Handle error
     } finally {
       setLoading(false);
     }
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
         <p className="text-gray-400">System overview and management</p>
       </div>
 
-      {/* Stats Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <DashboardStatCard icon={<FiUsers />} label="Total Users" value={stats.users} color="bg-blue-500" />
         <DashboardStatCard icon={<FiActivity />} label="Workouts Logged" value={stats.workouts} color="bg-red-500" />
@@ -52,7 +52,6 @@ const AdminDashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Users */}
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-white">Recent Users</h3>
@@ -87,7 +86,6 @@ const AdminDashboard = () => {
           )}
         </div>
 
-        {/* System Quick Links */}
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Management</h3>
           <div className="grid grid-cols-1 gap-3">

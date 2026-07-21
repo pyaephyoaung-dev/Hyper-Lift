@@ -34,8 +34,6 @@ public class WorkoutPlan extends BaseEntity {
     @Builder.Default
     private boolean isPublic = true;
 
-    /** How many gym days/week this plan is designed for. Used to match
-     *  a plan against a user's requested availability. */
     @Column(name = "days_per_week", nullable = false)
     private Integer daysPerWeek;
 

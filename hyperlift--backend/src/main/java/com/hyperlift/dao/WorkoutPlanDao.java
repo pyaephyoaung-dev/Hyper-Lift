@@ -13,7 +13,6 @@ public interface WorkoutPlanDao extends JpaRepository<WorkoutPlan, Long> {
 
     List<WorkoutPlan> findByIsPublicTrue();
 
-    /** Plans matching a user's requested gym-days-per-week. */
     List<WorkoutPlan> findByDaysPerWeekAndIsPublicTrue(Integer daysPerWeek);
 
     List<WorkoutPlan> findByDifficultyLevel(String difficultyLevel);

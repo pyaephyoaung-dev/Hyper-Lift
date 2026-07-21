@@ -9,8 +9,6 @@ interface DonutChartProps {
   size?: number;
 }
 
-// A small dependency-free SVG donut chart with a legend, used for the
-// Rest Day vs Training Day breakdown on the Progress page.
 const DonutChart = ({ segments, size = 220 }: DonutChartProps) => {
   const total = segments.reduce((sum, s) => sum + s.value, 0);
   const radius = size / 2 - 20;

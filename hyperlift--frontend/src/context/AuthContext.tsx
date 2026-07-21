@@ -19,9 +19,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUserState] = useState<AuthUser | null>(getUser());
   const [isLoading, setIsLoading] = useState(false);
 
-  // Auth is session-cookie based. On first load, re-validate the session
-  // with the server rather than blindly trusting the cached localStorage
-  // user (the cookie may have expired since the last visit).
   useEffect(() => {
     const cachedUser = getUser();
     if (!cachedUser) return;

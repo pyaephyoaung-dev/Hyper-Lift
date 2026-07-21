@@ -6,10 +6,45 @@
   <component name="ChangeListManager">
     <list default="true" id="acc0d615-b91c-49c5-9a9e-30f438272f10" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/dao/WorkoutPlanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/dao/WorkoutPlanDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/ProfileUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/ProfileUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/ProgressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/ProgressRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/WorkoutSplitRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/WorkoutSplitRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/WorkoutSplitResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/dto/WorkoutSplitResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/Progress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/Progress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/SplitExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/SplitExercise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/WorkoutPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/WorkoutPlan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/WorkoutSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/entity/WorkoutSplit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/service/WorkoutPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/service/WorkoutPlanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hyperlift/service/WorkoutSplitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hyperlift/service/WorkoutSplitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hyperlift/dto/WorkoutSplitRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hyperlift/dto/WorkoutSplitRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hyperlift/entity/WorkoutSplit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hyperlift/entity/WorkoutSplit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hyperlift/service/WorkoutSplitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hyperlift/service/WorkoutSplitService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/auth/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminPlanBuilder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminPlanBuilder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminPlans.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/admin/AdminPlans.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/common/DonutChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/common/DonutChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/landing/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/landing/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/progress/CreateProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/progress/CreateProgress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/progress/UserProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/progress/UserProgress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/CreatePlan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/CreatePlan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/PlanDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/PlanDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/ProgressChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/ProgressChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/user/UserSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/workout/CreateWorkout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/workout/CreateWorkout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/components/workout/WorkoutDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/components/workout/WorkoutDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/context/AuthContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/context/AuthContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/services/authService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/services/authService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/services/axiosConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/services/axiosConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/services/planService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/services/planService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/types/AppTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/types/AppTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/utils/AppConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/utils/AppConstants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hyperlift--frontend/src/utils/Helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../hyperlift--frontend/src/utils/Helpers.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

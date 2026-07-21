@@ -17,8 +17,6 @@ interface EditorExercise {
   reps: number;
 }
 
-// Admin workspace for building out a library plan's day-by-day split,
-// including which exercises are assigned and their required sets/reps.
 const AdminPlanBuilder = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,7 +28,6 @@ const AdminPlanBuilder = () => {
   const [success, setSuccess] = useState('');
   const [deleteId, setDeleteId] = useState<number | null>(null);
 
-  // split editor state
   const [editingSplit, setEditingSplit] = useState<WorkoutSplitResponse | null>(null);
   const [showEditor, setShowEditor] = useState(false);
   const [splitName, setSplitName] = useState('');
@@ -39,7 +36,6 @@ const AdminPlanBuilder = () => {
   const [editorExercises, setEditorExercises] = useState<EditorExercise[]>([]);
   const [submitting, setSubmitting] = useState(false);
 
-  // plan details editor state
   const [showPlanEditor, setShowPlanEditor] = useState(false);
   const [planName, setPlanName] = useState('');
   const [planDescription, setPlanDescription] = useState('');
@@ -52,7 +48,6 @@ const AdminPlanBuilder = () => {
 
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const loadData = async () => {

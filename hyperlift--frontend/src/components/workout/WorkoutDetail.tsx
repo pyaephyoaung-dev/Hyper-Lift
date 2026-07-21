@@ -61,7 +61,6 @@ const WorkoutDetail = () => {
         </div>
       </div>
 
-      {/* Exercises List */}
       <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
         <h3 className="text-lg font-semibold text-white mb-4">Exercises</h3>
         {workout.exercises && workout.exercises.length > 0 ? (

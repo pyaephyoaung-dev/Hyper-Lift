@@ -15,7 +15,6 @@ const USERNAME_PATTERN = /^[a-zA-Z0-9_]{3,50}$/;
 const Register = () => {
   const [step, setStep] = useState<1 | 2>(1);
 
-  // Step 1 — account
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -24,7 +23,6 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [usernameStatus, setUsernameStatus] = useState<UsernameStatus>('idle');
 
-  // Step 2 — fitness profile
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [weight, setWeight] = useState('');
@@ -38,7 +36,6 @@ const Register = () => {
   const navigate = useNavigate();
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Debounced "is this username taken?" check against the backend.
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
 

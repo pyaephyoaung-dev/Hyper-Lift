@@ -5,11 +5,6 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-/**
- * Fields a user is allowed to change from their own Profile page:
- * username, password, body weight, and height.
- * (Admin-only user management uses a different flow.)
- */
 @Getter
 @Setter
 @NoArgsConstructor

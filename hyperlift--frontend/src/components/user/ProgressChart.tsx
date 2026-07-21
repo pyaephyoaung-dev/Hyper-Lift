@@ -5,11 +5,6 @@ interface ProgressChartProps {
   weeks?: number;
 }
 
-/**
- * Simple dependency-free SVG bar chart showing how many workouts were
- * logged per week over the last `weeks` weeks. Built with plain SVG so
- * it doesn't require adding a charting library to the project.
- */
 const ProgressChart = ({ workouts, weeks = 8 }: ProgressChartProps) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);

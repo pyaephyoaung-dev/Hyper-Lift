@@ -33,7 +33,6 @@ export const authService = {
     try {
       await api.post(`${AUTH_URL}/logout`);
     } catch {
-      // silently fail
     }
   },
 };

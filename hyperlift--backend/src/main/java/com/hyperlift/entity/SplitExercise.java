@@ -3,11 +3,6 @@ package com.hyperlift.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-/**
- * A single exercise assigned to a {@link WorkoutSplit} day, together with
- * the required sets/reps the admin defined for it. This is the template
- * used when a plan is previewed/selected — it is not a performance log.
- */
 @Entity
 @Table(name = "split_exercise")
 @Getter

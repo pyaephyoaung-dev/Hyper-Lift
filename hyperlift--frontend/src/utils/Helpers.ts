@@ -20,10 +20,6 @@ export const formatDateTime = (dateString: string): string => {
   });
 };
 
-// Auth is session-cookie based (no JWT). We still cache the last-known user
-// object in localStorage purely so the UI can render instantly on refresh;
-// the actual authorization check for protected endpoints happens server-side
-// via the JSESSIONID cookie sent with every request (see axiosConfig.ts).
 export const getUser = (): any | null => {
   const user = localStorage.getItem('user');
   return user ? JSON.parse(user) : null;
@@ -49,7 +45,7 @@ export const isAdmin = (): boolean => {
 export type PasswordStrengthLevel = 'weak' | 'medium' | 'strong';
 
 export interface PasswordStrength {
-  score: number; // 1-3
+  score: number; 
   level: PasswordStrengthLevel;
   label: string;
   color: string;
@@ -66,7 +62,6 @@ export const getPasswordStrength = (password: string): PasswordStrength => {
   if (/\d/.test(password)) score++;
   if (/[^A-Za-z0-9]/.test(password)) score++;
 
-  // Normalize the raw score into exactly 3 buckets: Weak, Medium, Strong.
   if (score <= 1) {
     return { score: 1, level: 'weak', label: 'Weak', color: 'bg-red-500' };
   }

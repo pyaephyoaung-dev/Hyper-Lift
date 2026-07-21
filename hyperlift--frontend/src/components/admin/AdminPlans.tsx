@@ -17,7 +17,6 @@ const AdminPlans = () => {
   const [search, setSearch] = useState('');
   const [deleteId, setDeleteId] = useState<number | null>(null);
 
-  // Create Plan modal
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');

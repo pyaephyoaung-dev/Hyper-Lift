@@ -128,7 +128,6 @@ const CreateWorkout = () => {
           </div>
         </div>
 
-        {/* Exercises */}
         <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-white font-semibold">Exercises</h3>

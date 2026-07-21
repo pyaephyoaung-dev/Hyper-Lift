@@ -1,12 +1,10 @@
 export const API_BASE_URL = 'http://localhost:8080/api';
 
 export const ROUTES = {
-  // Public
   HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
 
-  // User
   USER_DASHBOARD: '/user/dashboard',
   USER_WORKOUTS: '/user/workouts',
   USER_WORKOUT_CREATE: '/user/workouts/create',
@@ -20,7 +18,6 @@ export const ROUTES = {
   USER_PROGRESS_CREATE: '/user/progress/create',
   USER_PROFILE: '/user/profile',
 
-  // Admin
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_USERS: '/admin/users',
   ADMIN_EXERCISES: '/admin/exercises',

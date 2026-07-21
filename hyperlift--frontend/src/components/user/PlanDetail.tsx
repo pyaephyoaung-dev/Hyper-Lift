@@ -7,7 +7,6 @@ import LoadingSpinner from '../common/LoadingSpinner';
 import AlertMessage from '../common/AlertMessage';
 import { getDifficultyColor, getMuscleGroupColor } from '../../utils/Helpers';
 
-// Preview of a library plan — lets the user select it as their active schedule.
 const PlanDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();

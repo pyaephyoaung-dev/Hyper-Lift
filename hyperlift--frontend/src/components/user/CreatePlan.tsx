@@ -7,8 +7,6 @@ import LoadingSpinner from '../common/LoadingSpinner';
 import { WorkoutPlanResponse } from '../../types/AppTypes';
 import { getDifficultyColor } from '../../utils/Helpers';
 
-// "Request a Workout Plan": the user enters their gym days/week, we show
-// matching plans from the admin's library, they preview and select one.
 const CreatePlan = () => {
   const navigate = useNavigate();
   const [daysPerWeek, setDaysPerWeek] = useState(3);

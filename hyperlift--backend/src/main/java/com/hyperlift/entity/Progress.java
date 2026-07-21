@@ -17,16 +17,13 @@ public class Progress extends BaseEntity {
     @Column(name = "record_date", nullable = false)
     private LocalDate recordDate;
 
-    /** Null when this record is a rest day. */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exercise_id")
     private Exercise exercise;
 
-    /** Null when this record is a rest day. */
     @Column(name = "weight")
     private Double weight;
 
-    /** Null when this record is a rest day. */
     @Column(name = "reps")
     private Integer reps;
 

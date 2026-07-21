@@ -61,7 +61,6 @@ public class WorkoutPlanService {
                 .collect(Collectors.toList());
     }
 
-    /** Plans from the admin's library that match a user's requested gym days/week. */
     public List<WorkoutPlanResponse> matchWorkoutPlans(Integer daysPerWeek, Long requestingUserId) {
         return workoutPlanDao.findByDaysPerWeekAndIsPublicTrue(daysPerWeek).stream()
                 .map(plan -> convertToWorkoutPlanResponse(plan, requestingUserId))
@@ -74,7 +73,6 @@ public class WorkoutPlanService {
                 .collect(Collectors.toList());
     }
 
-    /** The plan the given user currently has selected as their active schedule, if any. */
     public WorkoutPlanResponse getActivePlanForUser(Long userId) {
         User user = userDao.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
@@ -84,7 +82,6 @@ public class WorkoutPlanService {
         return convertToWorkoutPlanResponse(user.getActivePlan(), userId);
     }
 
-    /** Adopts an admin-authored plan as the user's active workout schedule. */
     public WorkoutPlanResponse selectActivePlan(Long planId, Long userId) {
         WorkoutPlan plan = workoutPlanDao.findById(planId)
                 .orElseThrow(() -> new IllegalArgumentException("Workout plan not found with id: " + planId));
@@ -95,7 +92,6 @@ public class WorkoutPlanService {
         return convertToWorkoutPlanResponse(plan, userId);
     }
 
-    /** Creates a new library plan. planCreatorId is the authenticated admin's id. */
     public WorkoutPlanResponse createWorkoutPlan(WorkoutPlanRequest request, Long planCreatorId) {
         User creator = userDao.findById(planCreatorId)
                 .orElseThrow(() -> new UserNotFoundException(planCreatorId));
@@ -133,11 +129,6 @@ public class WorkoutPlanService {
         return convertToWorkoutPlanResponse(updatedPlan, null);
     }
 
-    /** Deletes a library plan. Any user who has this plan selected as their
-     *  active schedule is unassigned first, and any logged workouts that
-     *  reference one of this plan's split days have that link cleared —
-     *  otherwise the delete fails with a foreign key constraint violation
-     *  (surfaced to the admin as a generic "Failed to delete plan" error). */
     public void deleteWorkoutPlan(Long id) {
         if (!workoutPlanDao.existsById(id)) {
             throw new IllegalArgumentException("Workout plan not found with id: " + id);
@@ -165,7 +156,6 @@ public class WorkoutPlanService {
         workoutPlanDao.deleteById(id);
     }
 
-    // Manual Entity to DTO conversion
     private WorkoutPlanResponse convertToWorkoutPlanResponse(WorkoutPlan plan, Long requestingUserId) {
         List<WorkoutSplitResponse> splitResponses = null;
         if (plan.getWorkoutSplits() != null) {
